@@ -1,0 +1,67 @@
+body {
+  background-color: rgb(31, 30, 30);
+  font-family: 'Roboto', sans-serif;
+}
+
+form {
+  width: 30rem;
+  margin: 3rem auto;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+label {
+  margin: 0.5rem;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid rgb(184, 184, 184);
+  padding: 0.23rem;
+  color: rgb(61, 58, 58);
+}
+
+input:focus,
+textarea:focus {
+  background-color: rgb(228, 211, 247);
+  color: rgb(0, 0, 0);
+  border-color: rgb(72, 26, 124);
+}
+
+button {
+  display: block;
+  font: inherit;
+  /* we use inherit when we need to tell the browser to overwrite the browser
+  default styles by the font style we define. In this case, the font style
+  defined in the body tag. */
+  background-color: rgb(32, 5, 63);
+  color: white;
+  border: 1px solid rgb(32, 5, 63);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  /* by using this css property, when we hover over the button, the cursor
+  becomes a hand. */
+}
+
+button:hover {
+  background-color: rgb(52, 14, 95);
+  border-color: rgb(52, 14, 95);
+}
+
+.form-control-inline {
+  display: flex;
+}
+
+.form-control-inline input {
+  width: auto;
+  margin-right: 0.5rem;
+}
