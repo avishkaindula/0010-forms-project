@@ -190,8 +190,25 @@
           </div>
         </section>
 
-        <section>
+        <section id="buttons-section">
           <button>Submit</button>
+          <!-- if we want to overwrite the default behavior of a button
+          that is sitting "inside" a form, we can do this by using the 
+          "type" attribute. -->
+          <!-- <button type="submit"></button> -->
+          <!-- by default, the type attribute is set to submit. So we don't
+          need to add type"submit" to a button if we are using this button
+          to submit forms. -->
+          <button type="button">Click Here</button>
+          <!-- if we set the type to "button", then if we click this button,
+          it won't submit anything. -->
+          <button type="reset">Clear</button>
+          <!-- if the type is set to "reset", then clicking this button will
+          reset and clear the form. -->
+          <!-- buttons don't always have to be added inside forms. -->
+          <!-- we can use buttons outside forms as well. -->
+          <!-- but when we use a button outside forms, we always need to use
+          JavaScript to make that button do something when clicked. -->
         </section>
       </form>
     </main>
