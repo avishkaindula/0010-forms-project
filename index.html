@@ -18,6 +18,9 @@
     </header>
     <main>
       <form action="/" method="GET">
+        <!-- <form action="/" method="GET" novalidate> -->
+        <!-- novalidate will disable built-in validation. -->
+        <!-- this is usable when we use Javascript to write our own validations -->
         <!-- we typically write elements like input,button inside "form" element. -->
         <!-- <form action="/user-data" method="POST"> -->
         <!-- action attribute is used to define the URL this request should sent to. -->
@@ -31,13 +34,20 @@
         <!-- for post requests, any data that will be submitted will be part of the request itself. -->
         <!-- it's some kind of metadata that is attached to it. -->
 
+        <!-- <form action="/" method="GET" novalidate> -->
+        <!-- "novalidate" will disable built-in validation. -->
+        <!-- this is usable when we use Javascript to write our own validations -->
+        <!-- novalidate is a boolean attribute. It means we don't have to assign a value to
+        that attribute. The "existence" of this attribute automatically defines our need. -->
+
         <section>
           <h2>Your personal details</h2>
           <ul>
             <li>
               <label for="user-name-id">Your name</label>
               <!-- label element is used to display the details about the input we expect. -->
-              <input type="text" name="user-name" id="user-name-id" />
+              <input type="text" name="user-name" id="user-name-id" required />
+              <!-- the "required" attribute helps us to define the inputs that are mandatory. -->
               <!-- input is a void element. So it doesn't have a closing tag. -->
               <!-- type attribute defines what type of data we want to input. -->
               <!-- name attribute allows to add a unique identifier to this input element. -->
@@ -47,7 +57,12 @@
             </li>
             <li>
               <label for="user-email-id">Your email address</label>
-              <input type="email" name="user-email" id="user-email-id" />
+              <input
+                type="email"
+                name="user-email"
+                id="user-email-id"
+                required
+              />
             </li>
             <li>
               <label for="user-password-id">Your password</label>
@@ -55,7 +70,10 @@
                 type="password"
                 name="user-password"
                 id="user-password-id"
+                required
+                minlength="7"
               />
+              <!-- minlength tells us how many characters minimum should be there in the password. -->
             </li>
           </ul>
         </section>
@@ -70,14 +88,26 @@
                 step="0.5"
                 name="user-age"
                 id="user-age-id"
+                min="18"
+                max="100"
               />
+              <!-- min tells us the minimum value that should be entered inside the input element. -->
               <!-- step tells the browser how much value does it increase or decrease when clicking
               the arrow buttons. -->
             </li>
             <li>
               <label for="user-birthday-id">Your birthday</label>
-              <input type="date" name="user-birthday" id="user-birthday-id" />
+              <input
+                type="date"
+                name="user-birthday"
+                id="user-birthday-id"
+                required
+                min="1921-01-01"
+                max="2003-01-01"
+              />
             </li>
+            <!-- this is how we limit the maximum and minimum birthday that can be added. -->
+            <!-- days are in YYYY-MM-DD format.  -->
             <li>
               <label for="favorite-color-id">Your favorite color?</label>
               <select name="favorite-color" id="favorite-color-id">
@@ -119,6 +149,7 @@
                 name="user-radio"
                 id="verify-text-message-id"
                 value="text-message"
+                required
               />
               <label for="verify-text-message-id"
                 >Via a text message (SMS)</label
@@ -130,6 +161,7 @@
                 name="user-radio"
                 id="verify-phone-call-id"
                 value="phone"
+                required
               />
               <label for="verify-phone-call-id">Via a phone call</label>
             </li>
@@ -139,6 +171,7 @@
                 name="user-radio"
                 id="verify-email-id"
                 value="email"
+                required
               />
               <label for="verify-email-id">Via an email</label>
             </li>
@@ -148,6 +181,9 @@
             radio inputs are selected. -->
             <!-- only the selected item's value will be assigned to the "user-radio"
             name in the url. -->
+            <!-- when we use required attribute in radio buttons, we need to add the
+            required attribute into all radio buttons. But it doesn't mean that we need
+            to select all the radio buttons, which is impossible. -->
           </ul>
         </section>
 
