@@ -1,6 +1,17 @@
 body {
   background-color: rgb(31, 30, 30);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 form {
@@ -12,7 +23,8 @@ form {
 }
 
 label {
-  margin: 0.5rem;
+  margin-left: 0rem;
+  margin-bottom: 0.5rem;
   display: block;
 }
 
@@ -64,4 +76,9 @@ button:hover {
 .form-control-inline input {
   width: auto;
   margin-right: 0.5rem;
+}
+
+#terms-styling {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }

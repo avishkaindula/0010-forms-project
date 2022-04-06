@@ -13,135 +13,187 @@
     <title>HTML Forms</title>
   </head>
   <body>
-    <!-- we typically write elements like input,button inside "form" element. -->
-    <form action="/" method="POST">
-      <!-- <form action="/user-data" method="POST"> -->
-      <!-- action attribute is used to define the URL this request should sent to. -->
-      <!-- just a / means that the request was sent to the initial page.(index.html page)
-      (but I'm not so sure about that.) -->
-      <!-- method help us to choose the type of HTTP request that should be sent. -->
-      <!-- we can sent either a "GET" request or a "POST" request. -->
-      <!-- get request is used whenever some resource should be fetched. -->
-      <!-- ex- get an html file and display it's content. -->
-      <!-- post is used whenever we need to store some data in a backend database. -->
-      <!-- for post requests, any data that will be submitted will be part of the request itself. -->
-      <!-- it's some kind of metadata that is attached to it. -->
-      <label for="user-name-id">Your name</label>
-      <!-- label element is used to display the details about the input we expect. -->
-      <input type="text" name="user-name" id="user-name-id" />
-      <!-- input is a void element. So it doesn't have a closing tag. -->
-      <!-- type attribute defines what type of data we want to input. -->
-      <!-- name attribute allows to add a unique identifier to this input element. -->
-      <!-- when we add a name attribute to the input element, the data we write inside the boxes will be 
-      automatically "attached" to that name by the outgoing request even when the request fails. -->
-      <!-- input types - text, email, number, password, date, radio, checkbox, file -->
+    <header>
+      <h1>Demo Form</h1>
+    </header>
+    <main>
+      <form action="/" method="GET">
+        <!-- we typically write elements like input,button inside "form" element. -->
+        <!-- <form action="/user-data" method="POST"> -->
+        <!-- action attribute is used to define the URL this request should sent to. -->
+        <!-- just a / means that the request was sent to the initial page.(index.html page)
+        (but I'm not so sure about that.) -->
+        <!-- method help us to choose the type of HTTP request that should be sent. -->
+        <!-- we can sent either a "GET" request or a "POST" request. -->
+        <!-- get request is used whenever some resource should be fetched. -->
+        <!-- ex- get an html file and display it's content. -->
+        <!-- post is used whenever we need to store some data in a backend database. -->
+        <!-- for post requests, any data that will be submitted will be part of the request itself. -->
+        <!-- it's some kind of metadata that is attached to it. -->
 
-      <label for="user-message-id">Your text-message</label>
-      <textarea
-        name="user-message"
-        id="user-message-id"
-        cols="30"
-        rows="10"
-      ></textarea>
-      <!-- textarea is void element (it doesn't have a content) but it still has a 
-      closing tag.  -->
+        <section>
+          <h2>Your personal details</h2>
+          <ul>
+            <li>
+              <label for="user-name-id">Your name</label>
+              <!-- label element is used to display the details about the input we expect. -->
+              <input type="text" name="user-name" id="user-name-id" />
+              <!-- input is a void element. So it doesn't have a closing tag. -->
+              <!-- type attribute defines what type of data we want to input. -->
+              <!-- name attribute allows to add a unique identifier to this input element. -->
+              <!-- when we add a name attribute to the input element, the data we write inside the boxes will be 
+              automatically "attached" to that name by the outgoing request even when the request fails. -->
+              <!-- input types - text, email, number, password, date, radio, checkbox, file -->
+            </li>
+            <li>
+              <label for="user-email-id">Your email address</label>
+              <input type="email" name="user-email" id="user-email-id" />
+            </li>
+            <li>
+              <label for="user-password-id">Your password</label>
+              <input
+                type="password"
+                name="user-password"
+                id="user-password-id"
+              />
+            </li>
+          </ul>
+        </section>
 
-      <label for="user-email-id">Your email address</label>
-      <input type="email" name="user-email" id="user-email-id" />
+        <section>
+          <h2>More details</h2>
+          <ul>
+            <li>
+              <label for="user-age-id">Your age</label>
+              <input
+                type="number"
+                step="0.5"
+                name="user-age"
+                id="user-age-id"
+              />
+              <!-- step tells the browser how much value does it increase or decrease when clicking
+              the arrow buttons. -->
+            </li>
+            <li>
+              <label for="user-birthday-id">Your birthday</label>
+              <input type="date" name="user-birthday" id="user-birthday-id" />
+            </li>
+            <li>
+              <label for="favorite-color-id">Your favorite color?</label>
+              <select name="favorite-color" id="favorite-color-id">
+                <!-- this is how we create a dropdown menu. -->
+                <option value="blue">Blue is my favorite</option>
+                <option value="black">Black is my favorite</option>
+                <option value="red">Red is my favorite</option>
+              </select>
+              <!-- only the selected item's value will be assigned to the "favorite-color"
+              name in the url. -->
+            </li>
+          </ul>
+        </section>
 
-      <label for="user-age-id">Your age</label>
-      <input type="number" step="0.5" name="user-age" id="user-age-id" />
-      <!-- step tells the browser how much value does it increase or decrease when clicking
-      the arrow buttons. -->
+        <section>
+          <label for="user-message-id">Your text-message</label>
+          <textarea
+            name="user-message"
+            id="user-message-id"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <!-- textarea is void element (it doesn't have a content) but it still has a 
+          closing tag.  -->
+        </section>
 
-      <label for="user-password-id">Your password</label>
-      <input type="password" name="user-password" id="user-password-id" />
+        <section>
+          <label for="input-file-id">You profile image</label>
+          <input type="file" id="input-file-id" />
+          <!-- This is a file picker. -->
+        </section>
 
-      <label for="user-birthday-id">Your birthday</label>
-      <input type="date" name="user-birthday" id="user-birthday-id" />
+        <section>
+          <h2>How should we verify your account?</h2>
+          <ul>
+            <li class="form-control-inline">
+              <input
+                type="radio"
+                name="user-radio"
+                id="verify-text-message-id"
+                value="text-message"
+              />
+              <label for="verify-text-message-id"
+                >Via a text message (SMS)</label
+              >
+            </li>
+            <li class="form-control-inline">
+              <input
+                type="radio"
+                name="user-radio"
+                id="verify-phone-call-id"
+                value="phone"
+              />
+              <label for="verify-phone-call-id">Via a phone call</label>
+            </li>
+            <li class="form-control-inline">
+              <input
+                type="radio"
+                name="user-radio"
+                id="verify-email-id"
+                value="email"
+              />
+              <label for="verify-email-id">Via an email</label>
+            </li>
+            <!-- the name of all the radio inputs should be "identical". -->
+            <!-- we can only select "one" of the radio input options. -->
+            <!-- value is the actual output that gets submitted once one of this
+            radio inputs are selected. -->
+            <!-- only the selected item's value will be assigned to the "user-radio"
+            name in the url. -->
+          </ul>
+        </section>
 
-      <h2>How should we verify your account?</h2>
-      <div class="form-control-inline">
-        <input
-          type="radio"
-          name="user-radio"
-          id="verify-text-message-id"
-          value="text-message"
-        />
-        <label for="verify-text-message-id">Via a text message (SMS)</label>
-      </div>
-      <div class="form-control-inline">
-        <input
-          type="radio"
-          name="user-radio"
-          id="verify-phone-call-id"
-          value="phone"
-        />
-        <label for="verify-phone-call-id">Via a phone call</label>
-      </div>
-      <div class="form-control-inline">
-        <input
-          type="radio"
-          name="user-radio"
-          id="verify-email-id"
-          value="email"
-        />
-        <label for="verify-email-id">Via an email</label>
-      </div>
-      <!-- the name of all the radio inputs should be "identical". -->
-      <!-- we can only select "one" of the radio input options. -->
-      <!-- value is the actual output that gets submitted once one of this
-      radio inputs are selected. -->
-      <!-- only the selected item's value will be assigned to the "user-radio"
-      name in the url. -->
+        <section>
+          <h2>How should we contact you?</h2>
+          <ul>
+            <li class="form-control-inline">
+              <input
+                type="checkbox"
+                id="contact-email"
+                name="contact"
+                value="email"
+              />
+              <label for="contact-email">Contact me via email</label>
+            </li>
+            <li class="form-control-inline">
+              <input
+                type="checkbox"
+                id="contact-phone"
+                name="contact"
+                value="phone"
+              />
+              <label for="contact-phone">Contact me via phone</label>
+            </li>
+            <!-- we can select more than one checkbox options. -->
+            <!-- the url changes according to the changes that we are submitting by clicking the 
+            submit button. -->
+            <!-- if the user select both email and phone contact checkboxes, both email and phone
+            values will be assigned to "contact" name in the url. -->
+          </ul>
+        </section>
 
-      <hr />
-      <!-- this is just a horizontal line. -->
+        <hr />
+        <!-- this is just a horizontal line. -->
 
-      <div class="form-control-inline">
-        <input type="checkbox" id="agree-terms" name="terms" />
-        <label for="agree-terms">Agree to terms?</label>
-      </div>
+        <section id="terms-styling">
+          <div class="form-control-inline">
+            <input type="checkbox" id="agree-terms" name="terms" />
+            <label for="agree-terms">Agree to terms?</label>
+          </div>
+        </section>
 
-      <div class="form-control-inline">
-        <input
-          type="checkbox"
-          id="contact-email"
-          name="contact"
-          value="email"
-        />
-        <label for="contact-email">Contact me via email</label>
-      </div>
-      <div class="form-control-inline">
-        <input
-          type="checkbox"
-          id="contact-phone"
-          name="contact"
-          value="phone"
-        />
-        <label for="contact-phone">Contact me via phone</label>
-      </div>
-      <!-- we can select more than one checkbox options. -->
-      <!-- the url changes according to the changes that we are submitting by clicking the 
-      submit button. -->
-      <!-- if the user select both email and phone contact checkboxes, both email and phone
-      values will be assigned to "contact" name in the url. -->
-
-      <label for="favorite-color-id">Your favorite color?</label>
-      <select name="favorite-color" id="favorite-color-id">
-        <!-- this is how we create a dropdown menu. -->
-        <option value="blue">Blue is my favorite</option>
-        <option value="black">Black is my favorite</option>
-        <option value="red">Red is my favorite</option>
-      </select>
-      <!-- only the selected item's value will be assigned to the "favorite-color"
-      name in the url. -->
-
-      <label for="input-file-id">You profile image</label>
-      <input type="file" id="input-file-id" />
-      <!-- This is a file picker. -->
-
-      <button>Submit</button>
-    </form>
+        <section>
+          <button>Submit</button>
+        </section>
+      </form>
+    </main>
   </body>
 </html>
