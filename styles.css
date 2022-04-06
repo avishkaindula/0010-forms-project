@@ -30,6 +30,14 @@ label {
   display: block;
 }
 
+textarea {
+  /* resize: none; */
+  /* this will deactivate the resizing option which can be found on the 
+  bottom right of the text area. */
+  resize: vertical;
+  /* this allows the resizing option only to resize vertically. */
+}
+
 input,
 textarea,
 select {

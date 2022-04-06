@@ -46,7 +46,7 @@
             <li>
               <label for="user-name-id">Your name</label>
               <!-- label element is used to display the details about the input we expect. -->
-              <input type="text" name="user-name" id="user-name-id" required />
+              <input type="text" name="user-name" id="user-name-id" required placeholder="Avishka Indula" />
               <!-- the "required" attribute helps us to define the inputs that are mandatory. -->
               <!-- input is a void element. So it doesn't have a closing tag. -->
               <!-- type attribute defines what type of data we want to input. -->
@@ -54,6 +54,8 @@
               <!-- when we add a name attribute to the input element, the data we write inside the boxes will be 
               automatically "attached" to that name by the outgoing request even when the request fails. -->
               <!-- input types - text, email, number, password, date, radio, checkbox, file -->
+              <!-- Placeholder shows a example of the required type of input inside the boxes. But it get's
+              disappeared as soon as the user starts typing something on that box. -->
             </li>
             <li>
               <label for="user-email-id">Your email address</label>
@@ -132,6 +134,9 @@
           ></textarea>
           <!-- textarea is void element (it doesn't have a content) but it still has a 
           closing tag.  -->
+          <!-- rows defines the number of rows which are displayed in the text area.
+          However we can write more rows than the number of rows defined and then the text
+          area starts expanding. -->
         </section>
 
         <section>
